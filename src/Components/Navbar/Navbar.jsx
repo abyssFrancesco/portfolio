@@ -2,12 +2,16 @@ import React from "react";
 /* note to self, check if the css is connected before troubleshooting */
 import "./Navbar.css";
 import lighticon from "../../assets/icons8-sun.svg";
+import pfp from "../../assets/pfp.png";
 
 function Navbar() {
   return (
     <>
       <div className="navbar-box B">
-        <div className="navbar B">
+        <div className="pfp IB">
+            <img src={pfp} alt="" />
+        </div>
+        <div className="navbar IB">
           <div className="nav IB">
             <nav>
               <ul>

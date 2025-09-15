@@ -8,15 +8,35 @@ function Home() {
       <div className="home-box B">
         <Navbar />
         <div className="home IB">
-          <div className="main B">
-            <div className="grid-box">
-              <div className="profile-main">
-
+          <div className="grid-box IB">
+            <div className="profile-main IB">
+              <h2>hello, Francesco here</h2>
+              <p>
+                I'm a front-end developer based in Naples, helping companies
+                build meaningful products.
+              </p>
+              <div className="work">
+                <button>View My Work</button>
               </div>
-              <div className="profile-card top-card"></div>
-              <div className="profile-card bottom-card"></div>
+            </div>
+            <div className="side-col">
+              <div className="profile-card IB">
+                <p className="Bold B">👋​</p>
+                <div className="desc">
+                  <h4>Thinker & Designer</h4>
+                  <p>Crafting exepriences</p>
+                </div>
+              </div>
+              <div className="profile-card IB">
+                <p className="Bold">​🚀​</p>
+                <div className="desc">
+                  <h4>Based in IT</h4>
+                  <p>Naples</p>
+                </div>
+              </div>
             </div>
           </div>
+          
         </div>
       </div>
     </>

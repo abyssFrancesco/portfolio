@@ -1,6 +1,6 @@
 .navbar-box {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   height: 10vh;
   width: 100%;
@@ -68,4 +68,15 @@
 }
 .light-icon:hover {
   transform: scale(1.05);
+}
+.pfp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+
+}
+.pfp img {
+  width: 40px;
+  cursor: pointer;
 }
