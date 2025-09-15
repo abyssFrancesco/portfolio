@@ -1,7 +1,7 @@
 import React from "react";
 /* note to self, check if the css is connected before troubleshooting */
 import "./Navbar.css";
-import reactsvg from "../../Assets/react.svg";
+import lighticon from "../../assets/icons8-sun.svg";
 
 function Navbar() {
   return (
@@ -26,8 +26,11 @@ function Navbar() {
               </ul>
             </nav>
           </div>
+          <div className="resume">
+            <button>Resume</button>
+          </div>
           <div className="light-icon IB">
-            <img src={reactsvg} alt="" />
+            <img src={lighticon} alt="" />
           </div>
         </div>
       </div>
