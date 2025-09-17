@@ -11,6 +11,7 @@
 
 .home {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   height: 100%;
@@ -91,7 +92,7 @@
 }
 .work button {
   border: none;
-  border-radius: 30px;
+  border-radius: 2.5rem;
   padding: 15px 15px;
   background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 0.87);
@@ -102,4 +103,33 @@
 }
 .work button:hover {
   background-color: rgba(255, 255, 255, 0.829);
+}
+.small-grid-box {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 24px;
+  max-width: 1220px;
+  width: 100%;
+  height: 220px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+.main-tab {
+  border-radius: 1.5rem;
+  background: #171717;
+  height: 100%;
+}
+.small-tab {
+  border-radius: 1.5rem;
+  background: #171717;
+  height: 152px;
+  overflow: hidden;
+  display: flex;
+}
+.small-tab iframe{
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0;
 }

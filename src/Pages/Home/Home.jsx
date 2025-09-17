@@ -36,7 +36,23 @@ function Home() {
               </div>
             </div>
           </div>
-          
+          <div className="small-grid-box B">
+            <div className="main-tab"></div>
+            <div className="small-tab">
+              <iframe
+                data-testid="embed-iframe"
+                src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
+                width="100%"
+                height="100%"
+                FrameBorder="0"
+                allowFullScreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div className="small-tab"></div>
+            <div className="small-tab"></div>
+          </div>
         </div>
       </div>
     </>

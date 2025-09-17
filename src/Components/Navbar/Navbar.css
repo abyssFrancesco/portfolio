@@ -14,7 +14,7 @@
   width: 30%;
 }
 .nav {
-  border-radius: 30px;
+  border-radius: 2.5rem;
   border-color: rgba(182, 182, 182, 0.555);
 }
 .nav ul {
@@ -46,7 +46,7 @@
 }
 .resume button {
   border: none;
-  border-radius: 30px;
+  border-radius: 2.5rem;
   padding: 15px 15px;
   background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 0.87);
