@@ -3,8 +3,10 @@ import "./Home.css";
 import Navbar from "../../Components/Navbar/Navbar";
 
 function Home() {
+
   return (
     <>
+
       <div className="home-box B">
         <Navbar />
         <div className="home IB">
@@ -38,20 +40,36 @@ function Home() {
           </div>
           <div className="small-grid-box B">
             <div className="main-tab"></div>
-            <div className="small-tab">
+            <div className="small-tab IB">
               <iframe
                 data-testid="embed-iframe"
                 src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
-                width="100%"
-                height="100%"
                 FrameBorder="0"
                 allowFullScreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
               ></iframe>
             </div>
-            <div className="small-tab"></div>
-            <div className="small-tab"></div>
+            <div className="small-tab">
+              <iframe
+                data-testid="embed-iframe"
+                src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
+                FrameBorder="0"
+                allowFullScreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div className="small-tab">
+              <iframe
+                data-testid="embed-iframe"
+                src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
+                FrameBorder="0"
+                allowFullScreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>

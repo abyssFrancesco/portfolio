@@ -106,11 +106,11 @@
 }
 .small-grid-box {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
   max-width: 1220px;
   width: 100%;
-  height: 220px;
+  height: 252px;
   margin: 0 auto;
   margin-top: 24px;
 }
@@ -118,13 +118,17 @@
   border-radius: 1.5rem;
   background: #171717;
   height: 100%;
+  width: 100%;
 }
 .small-tab {
-  border-radius: 1.5rem;
-  background: #171717;
-  height: 152px;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 .small-tab iframe{
   border: none;
@@ -132,4 +136,6 @@
   height: 100%;
   display: block;
   border-radius: 0;
+  padding: 0;
+  margin: 0;
 }
