@@ -1,12 +1,54 @@
 import React from "react";
 import "./Home.css";
 import Navbar from "../../Components/Navbar/Navbar";
-
+import { getRecentTracks, getTopTracks } from "../../spotify/SpotifyService";
+import { useState, useEffect } from "react";
 function Home() {
-
+  // 🗃️ Stati per i dati Spotify
+  const [recentTracks, setRecentTracks] = useState([]);
+  const [topTracks, setTopTracks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  // 🚀 Carica i dati all'avvio del componente
+  useEffect(() => {
+    loadSpotifyData();
+  }, []);
+  // 📡 Funzione per caricare tutti i dati Spotify
+  const loadSpotifyData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      console.log("📡 Caricamento dati Spotify...");
+      // Chiamate parallele per velocizzare
+      const [recentData, topData] = await Promise.all([
+        getRecentTracks(10), // Ultime 10 canzoni
+        getTopTracks(10), // Top 10 dell'ultimo mese
+      ]);
+      // Salva i dati negli stati
+      setRecentTracks(recentData);
+      setTopTracks(topData);
+      // 📊 Console.log dei dati (come richiesto)
+      console.log("🎵 CANZONI RECENTI:", recentData);
+      console.log("🔥 TOP TRACKS ULTIMO MESE:", topData);
+      // Esempio di come accedere ai dati specifici
+      console.log("\n📋 DETTAGLI CANZONI RECENTI:");
+      recentData.forEach((item, index) => {
+        const track = item.track;
+        console.log(`${index + 1}. ${track.name} - ${track.artists[0].name}`);
+      });
+      console.log("\n📋 DETTAGLI TOP TRACKS:");
+      topData.forEach((track, index) => {
+        console.log(`${index + 1}. ${track.name} - ${track.artists[0].name}`);
+      });
+    } catch (err) {
+      console.error("❌ Errore nel caricamento:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
-
       <div className="home-box B">
         <Navbar />
         <div className="home IB">
