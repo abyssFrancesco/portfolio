@@ -4,16 +4,17 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { getRecentTracks, getTopTracks } from "../../spotify/SpotifyService";
 import { useState, useEffect } from "react";
 function Home() {
-  // 🗃️ Stati per i dati Spotify
+
+
   const [recentTracks, setRecentTracks] = useState([]);
   const [topTracks, setTopTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // 🚀 Carica i dati all'avvio del componente
+
   useEffect(() => {
     loadSpotifyData();
   }, []);
-  // 📡 Funzione per caricare tutti i dati Spotify
+  // Funzione per caricare tutti i dati Spotify
   const loadSpotifyData = async () => {
     try {
       setLoading(true);
@@ -86,7 +87,6 @@ function Home() {
               <iframe
                 data-testid="embed-iframe"
                 src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
-                FrameBorder="0"
                 allowFullScreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
@@ -96,7 +96,6 @@ function Home() {
               <iframe
                 data-testid="embed-iframe"
                 src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
-                FrameBorder="0"
                 allowFullScreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
@@ -106,7 +105,6 @@ function Home() {
               <iframe
                 data-testid="embed-iframe"
                 src="https://open.spotify.com/embed/track/1Q7EgiMOuwDcB0PJC6AzON?utm_source=generator"
-                FrameBorder="0"
                 allowFullScreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
