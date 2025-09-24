@@ -1,26 +1,35 @@
+// server/spotify-onefile.cjs
+const path = require("path");
+require("dotenv").config({
+  // Carica il .env dalla root del progetto (un livello sopra /server)
+  path: path.join(__dirname, "..", ".env"),
+});
+
 // Importa Express (server HTTP minimale)
 const express = require("express");
 
 // Crea un'app Express
 const app = express();
 
-// Porta su cui ascoltare (http://localhost:3000)
-const PORT = 3000;
-
-// >>> METTI QUI LE TUE CHIAVI <<<
-const CLIENT_ID = "0c12021489414f568314bb8b6bba530e"; // <-- sostituisci col tuo Client ID
-const CLIENT_SECRET = "2ff31d764e804ea99d7d8803536ff0cd"; // <-- sostituisci col tuo Client Secret
-
-// Redirect URI registrata nella tua app Spotify (deve combaciare esattamente)
-const REDIRECT_URI = "http://127.0.0.1:3000/callback";
+// Env (pulite con trim)
+const PORT = Number(process.env.PORT) || 3000;
+const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID?.trim();
+const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET?.trim();
+const REDIRECT_URI =
+  process.env.SPOTIFY_REDIRECT_URI?.trim() ||
+  `http://127.0.0.1:${PORT}/callback`;
+let REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN?.trim() || "";
 
 // Scope minimo per “Recently Played”
 const SCOPES = ["user-read-recently-played", "user-top-read"];
 
 // Qui salveremo il refresh token una volta ottenuto (per ora vuoto)
 // Dopo il primo login, incollalo qui e riavvia il server.
-let REFRESH_TOKEN =
-  "AQACKdUPgsvkKd9gNrYL1X6PgymXv_ildiWin0MeWiTMuP5GSL9gts0I0OPOqcZ4mtPVZJMxassbhm9ZWYwnKLjptUWdZPIKV4qR-as7KqWfI8HVEb36PffxB3E78RgqN0U";
+// Validazione minima
+if (!CLIENT_ID || !CLIENT_SECRET) {
+  console.error('Errore: SPOTIFY_CLIENT_ID o SPOTIFY_CLIENT_SECRET mancanti nelle env.');
+  process.exit(1);
+}
 
 // Utility: costruisce l'header Basic Auth richiesto da Spotify per /api/token
 function basicAuthHeader() {
