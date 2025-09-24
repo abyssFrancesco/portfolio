@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "../../Components/Navbar/Navbar";
-import sptf from "../../Assets/spotify.png.png";
+import sptf from "../../Assets/spotify.png";
 
 function Home() {
   const [view, setView] = useState("top"); // 'top' | 'recent'
