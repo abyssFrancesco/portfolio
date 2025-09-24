@@ -1,0 +1,33 @@
+{
+  "home": {
+    "hero": {
+      "heading": "ciao, sono {{name}}",
+      "description": "Sono uno sviluppatore front-end con sede a Napoli; aiuto le aziende a creare prodotti significativi.",
+      "cta": "Guarda i miei lavori"
+    },
+    "cards": {
+      "thinker": {
+        "title": "Pensatore & Designer",
+        "subtitle": "Progetto esperienze"
+      },
+      "location": {
+        "title": "Con sede in Italia",
+        "place": "Napoli"
+      }
+    },
+    "spotify": {
+      "title": "Il mio mood",
+      "subtitle": "Cosa sto ascoltando su Spotify",
+      "tabs": {
+        "top": "Più ascoltate",
+        "recent": "Ascoltate di recente"
+      },
+      "ariaToggle": "Seleziona elenco tracce",
+      "altLogo": "Logo di Spotify",
+      "unavailable": "Traccia non disponibile"
+    },
+    "status": {
+      "error": "Errore: {{message}}"
+    }
+  }
+}

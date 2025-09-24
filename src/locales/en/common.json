@@ -1,0 +1,33 @@
+{
+  "home": {
+    "hero": {
+      "heading": "hello, {{name}} here",
+      "description": "I'm a front-end developer based in Naples, helping companies build meaningful products.",
+      "cta": "View My Work"
+    },
+    "cards": {
+      "thinker": {
+        "title": "Thinker & Designer",
+        "subtitle": "Crafting experiences"
+      },
+      "location": {
+        "title": "Based in Italy",
+        "place": "Naples"
+      }
+    },
+    "spotify": {
+      "title": "My Vibe",
+      "subtitle": "What I'm listening to on Spotify",
+      "tabs": {
+        "top": "Most Listened",
+        "recent": "Recently Played"
+      },
+      "ariaToggle": "Select track list",
+      "altLogo": "Spotify logo",
+      "unavailable": "Track not available"
+    },
+    "status": {
+      "error": "Error: {{message}}"
+    }
+  }
+}
