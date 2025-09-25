@@ -10,11 +10,11 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  async function fetchJSON(url) {
-    const res = await fetch(url);
+  async function fetchJSON(url, options = {}) {
+    const res = await fetch(url, { credentials: "omit", ...options });
     if (!res.ok) {
       const text = await res.text();
-      throw new Error(`HTTP ${res.status} - ${text.slice(0, 200)}…`);
+      throw new Error(`HTTP ${res.status} - ${text.slice(0, 300)}…`);
     }
     return res.json();
   }
@@ -38,8 +38,8 @@ function Home() {
       try {
         setLoading(true);
         const [recentRes, topRes] = await Promise.allSettled([
-          fetchJSON("/recent-json"),
-          fetchJSON("/top-tracks-json?time_range=long_term&limit=10"),
+          fetchJSON("/api/recent-json"),
+          fetchJSON("/api/top-tracks-json?time_range=long_term&limit=10"),
         ]);
 
         if (!cancelled) {
@@ -119,7 +119,7 @@ function Home() {
                 <img src={sptf} alt="" />
                 <h3>My Vibe</h3>
               </div>
-              <p>What I'm listening to on Spotify</p> 
+              <p>What I'm listening to on Spotify</p>
               <div
                 className="toggle"
                 role="tablist"

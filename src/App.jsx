@@ -7,8 +7,8 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     // Helper: fetch che lancia un errore con testo utile se non è OK
-    async function fetchJSON(url) {
-      const res = await fetch(url);
+    async function fetchJSON(url, options = {}) {
+      const res = await fetch(url, { credentials: "omit", ...options });
       if (!res.ok) {
         const text = await res.text();
         throw new Error(`HTTP ${res.status} - ${text.slice(0, 300)}…`);
@@ -19,8 +19,10 @@ function App() {
       try {
         // Chiamo RECENT e TOP in parallelo
         const [recentResult, topResult] = await Promise.allSettled([
-          fetchJSON("/recent-json"), // tracce ascoltate di recente
-          fetchJSON("/top-tracks-json?time_range=long_term&limit=10"), // top tracks personali
+          fetchJSON("/api/recent-json", { credentials: "omit" }), // tracce ascoltate di recente
+          fetchJSON("/api/top-tracks-json?time_range=long_term&limit=10", {
+            credentials: "omit",
+          }), // top tracks personali
         ]);
         // Recently played
         if (recentResult.status === "fulfilled") {
