@@ -63,8 +63,8 @@
   transition: all 0.1s ease-in-out;
 }
 .light-icon img {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
 }
 .light-icon:hover {
   transform: scale(1.05);
@@ -79,4 +79,106 @@
 .pfp img {
   width: 40px;
   cursor: pointer;
+}
+
+/* resposnive */
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .navbar {
+    width: auto;            /* libera la larghezza vincolata al 30% */
+    gap: 16px;
+  }
+
+  .nav ul {
+    gap: 12px;
+    padding: 12px 12px;
+  }
+
+  .resume button {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .pfp {
+    width: auto;            /* evita percentuali strette */
+  }
+}
+
+/* ===== Mobile (≤768px) ===== */
+@media (max-width: 768px) {
+  /* Header più compatto e con wrapping */
+  .navbar-box {
+    height: auto;
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pfp img {
+    width: 32px;
+  }
+
+  /* La barra a destra si adatta e va a capo se serve */
+  .navbar {
+    width: auto;
+    flex: 1 1 0%;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+/*     flex-wrap: wrap;      */   /* permette di portare i link su una riga sotto */
+  }
+
+  /* Prima riga: pulsante Resume + icona luce */
+  .resume { order: 1; }
+  .light-icon { order: 1; }
+
+  /* Seconda riga: i link occupano tutta la larghezza */
+  .nav {
+    order: 2;
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .nav ul {
+    flex-wrap: nowrap;                  /* mantiene i link su una sola riga */
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    overflow-x: auto;                   /* scroll orizzontale se non ci sta */
+    -webkit-overflow-scrolling: touch;  /* scroll fluido su iOS */
+    scrollbar-width: thin;              /* Firefox */
+  }
+
+  .nav ul li a {
+    display: block;
+    padding: 10px 8px;
+    font-size: 0.95rem;
+  }
+
+  .resume button {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .light-icon img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ===== Small Mobile (≤480px) ===== */
+@media (max-width: 480px) {
+  .nav ul {
+    gap: 8px;
+  }
+
+  .nav ul li a {
+    padding: 8px 6px;
+    font-size: 0.9rem;
+  }
+
+  .resume button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
 }
