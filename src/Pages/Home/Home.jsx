@@ -10,14 +10,25 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  async function fetchJSON(url, options = {}) {
-    const res = await fetch(url, { credentials: "omit", ...options });
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`HTTP ${res.status} - ${text.slice(0, 300)}…`);
-    }
-    return res.json();
+async function fetchJSON(url, options = {}) {
+  const res = await fetch(url, {
+    credentials: "same-origin", // invia i cookie (necessari su Vercel se il sito è protetto)
+    headers: {
+      Accept: "application/json",
+      ...(options.headers || {}),
+    },
+    ...options,
+  });
+  const contentType = res.headers.get("content-type") || "";
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} - ${text.slice(0, 300)}…`);
   }
+  if (!contentType.includes("application/json")) {
+    throw new Error(`Expected JSON, got ${contentType || "unknown"} — ${text.slice(0, 200)}…`);
+  }
+  return JSON.parse(text);
+}
 
   function dedupeById(arr) {
     const seen = new Set();
