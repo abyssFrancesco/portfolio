@@ -1,9 +1,9 @@
-/* .B{
+.B{
   border: 2px solid red;
 }
 .IB{
   border: 1px solid blue;
-} */
+}
 /* per evitare sovrapposizioni ulteriori */
 *,
 *::before,

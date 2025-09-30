@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home.jsx";
 import { useEffect } from "react";
+import About from "./Pages/About/About.jsx";
 
 function App() {
   useEffect(() => {
@@ -64,6 +65,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );
