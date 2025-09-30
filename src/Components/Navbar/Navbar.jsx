@@ -4,17 +4,6 @@ import lighticon from "../../assets/icons8-sun.svg";
 import pfp from "../../assets/pfp.png";
 
 function Navbar() {
-  const handleDownload = () => {
-    const fileName = "Francesco Maria Gragnaniello cv.pdf"; // si trova in /public
-    const href = `${import.meta.env.BASE_URL}${encodeURIComponent(fileName)}`;
-    const a = document.createElement("a");
-    a.href = href;
-    a.download = "Francesco_Maria_Gragnaniello_CV.pdf"; // nome del file salvato
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  };
-
   return (
     <>
       <div className="navbar-box B">
@@ -40,15 +29,10 @@ function Navbar() {
                 </li>
               </ul>
             </nav>
-          </div>{" "}
-{/*           <div className="light-icon IB">
+          </div>
+          <div className="light-icon IB">
             <img src={lighticon} alt="" />
-          </div> */}
-{/*           <div className="resume">
-            <button type="button" onClick={handleDownload}>
-              Resume
-            </button>
-          </div> */}
+          </div>
         </div>
       </div>
     </>

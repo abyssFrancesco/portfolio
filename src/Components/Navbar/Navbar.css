@@ -44,20 +44,7 @@
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
 }
-.resume button {
-  border: none;
-  border-radius: 2.5rem;
-  padding: 15px 15px;
-  background-color: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-.resume button:hover {
-  background-color: rgba(255, 255, 255, 0.829);
-}
+
 .light-icon {
   cursor: pointer;
   transition: all 0.1s ease-in-out;
@@ -74,7 +61,6 @@
   justify-content: center;
   align-items: center;
   width: 10%;
-
 }
 .pfp img {
   width: 40px;
@@ -85,7 +71,7 @@
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
   .navbar {
-    width: auto;            /* libera la larghezza vincolata al 30% */
+    width: auto; /* libera la larghezza vincolata al 30% */
     gap: 16px;
   }
 
@@ -94,13 +80,10 @@
     padding: 12px 12px;
   }
 
-  .resume button {
-    padding: 12px 14px;
-    font-size: 0.95rem;
-  }
+
 
   .pfp {
-    width: auto;            /* evita percentuali strette */
+    width: auto; /* evita percentuali strette */
   }
 }
 
@@ -125,38 +108,30 @@
     gap: 8px;
     justify-content: flex-end;
     align-items: center;
-/*     flex-wrap: wrap;      */   /* permette di portare i link su una riga sotto */
+    /*     flex-wrap: wrap;      */ /* permette di portare i link su una riga sotto */
   }
 
   /* Prima riga: pulsante Resume + icona luce */
-  .resume { order: 1; }
-  .light-icon { order: 1; }
-
-  /* Seconda riga: i link occupano tutta la larghezza */
-  .nav {
-    order: 2;
-    flex-basis: 100%;
-    width: 100%;
+  .light-icon {
+    order: 1;
   }
 
+  /* Seconda riga: i link occupano tutta la larghezza */
+
+
   .nav ul {
-    flex-wrap: nowrap;                  /* mantiene i link su una sola riga */
-    justify-content: space-between;
+    flex-wrap: nowrap; /* mantiene i link su una sola riga */
+    justify-content: center;
     gap: 10px;
     padding: 8px 0;
-    overflow-x: auto;                   /* scroll orizzontale se non ci sta */
-    -webkit-overflow-scrolling: touch;  /* scroll fluido su iOS */
-    scrollbar-width: thin;              /* Firefox */
+    overflow-x: auto; /* scroll orizzontale se non ci sta */
+    -webkit-overflow-scrolling: touch; /* scroll fluido su iOS */
+    scrollbar-width: thin; /* Firefox */
   }
 
   .nav ul li a {
     display: block;
     padding: 10px 8px;
-    font-size: 0.95rem;
-  }
-
-  .resume button {
-    padding: 10px 12px;
     font-size: 0.95rem;
   }
 
@@ -177,8 +152,4 @@
     font-size: 0.9rem;
   }
 
-  .resume button {
-    padding: 8px 10px;
-    font-size: 0.9rem;
-  }
 }

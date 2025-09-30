@@ -4,31 +4,47 @@ import Navbar from "../../Components/Navbar/Navbar";
 import sptf from "../../assets/spotify.png";
 
 function Home() {
+  const handleDownload = () => {
+    const fileName = "Francesco Maria Gragnaniello cv.pdf"; // si trova in /public
+    const href = `${import.meta.env.BASE_URL}${encodeURIComponent(fileName)}`;
+    const a = document.createElement("a");
+    a.href = href;
+    a.download = "Francesco_Maria_Gragnaniello_CV.pdf"; // nome del file salvato
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  };
+
   const [view, setView] = useState("top"); // 'top' | 'recent'
   const [topTracks, setTopTracks] = useState([]); // array di track
   const [recentTracks, setRecentTracks] = useState([]); // array di track
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-async function fetchJSON(url, options = {}) {
-  const res = await fetch(url, {
-    credentials: "same-origin", // invia i cookie (necessari su Vercel se il sito è protetto)
-    headers: {
-      Accept: "application/json",
-      ...(options.headers || {}),
-    },
-    ...options,
-  });
-  const contentType = res.headers.get("content-type") || "";
-  const text = await res.text();
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status} - ${text.slice(0, 300)}…`);
+  async function fetchJSON(url, options = {}) {
+    const res = await fetch(url, {
+      credentials: "same-origin", // invia i cookie (necessari su Vercel se il sito è protetto)
+      headers: {
+        Accept: "application/json",
+        ...(options.headers || {}),
+      },
+      ...options,
+    });
+    const contentType = res.headers.get("content-type") || "";
+    const text = await res.text();
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} - ${text.slice(0, 300)}…`);
+    }
+    if (!contentType.includes("application/json")) {
+      throw new Error(
+        `Expected JSON, got ${contentType || "unknown"} — ${text.slice(
+          0,
+          200
+        )}…`
+      );
+    }
+    return JSON.parse(text);
   }
-  if (!contentType.includes("application/json")) {
-    throw new Error(`Expected JSON, got ${contentType || "unknown"} — ${text.slice(0, 200)}…`);
-  }
-  return JSON.parse(text);
-}
 
   function dedupeById(arr) {
     const seen = new Set();
@@ -100,7 +116,9 @@ async function fetchJSON(url, options = {}) {
                 build meaningful products.
               </p>
               <div className="work">
-                <button>View My Work</button>
+                <button type="button" onClick={handleDownload}>
+                  Resume
+                </button>
               </div>
             </div>
 
