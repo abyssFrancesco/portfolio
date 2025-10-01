@@ -110,7 +110,7 @@ function Home() {
         <div className="home IB">
           <div className="grid-box IB">
             <div className="profile-main IB">
-              <h2>hello, Francesco here</h2>
+              <h2>hello, Francesco here!</h2>
               <p>
                 I'm a front-end developer based in Naples, helping companies
                 build meaningful products.

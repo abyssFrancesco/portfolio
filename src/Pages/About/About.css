@@ -12,7 +12,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
   width: 100%;
+}
+.grid{
+  display: grid;
+  grid-column: 1fr 2fr;
+  gap: 24px;
+}
+.main-des{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile {
+  height: 200px;
+  width: 200px;
+  background-color: grey;
+
+}
+.description {
+  background-color: lightgrey;
+  height: 200px;
+  width: 400px;
 }
